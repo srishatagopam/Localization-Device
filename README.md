@@ -55,14 +55,19 @@ git checkout [Name_of_Branch]
 
 4. Start developing as you normally do until you are all finished
 
-5. Commit the changes to your local git with a message of what was changed. It is extremely important to add a message as the commit will open up VIM expecting you to write a message in. To avoid this issue, be sure to write the message in the intial commit command.
+5. Add the specific files that were worked
+```
+git add file.txt
+```
+
+6. Commit the changes to the added files to the local git with a message of what was changed. It is important to add a message as the commit will open up VIM expecting you to write a message in. **To avoid this issue, be sure to write the message in the initial commit command**
 ```
 git commit -m "Programmed the Arduino to blink an LED every 5 seconds"
 ```
 
-6. Push these commits in your local git to the github so everyone can pull these changes to their local computers
+7. Push these commits in your local git to the github so everyone can pull these changes to their local computers
 ```
 git push origin [Name_of_Branch]
 ```
 
-7. A pop window will appear prompting for you github login information. Enter you username into the first window and click submit, then enter you password into the second window and click submit.
+8. A pop window will appear prompting for you github login information. Enter you username into the first window and click submit, then enter you password into the second window and click submit.
