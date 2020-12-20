@@ -14,6 +14,16 @@ https://git-scm.com/downloads
 
 Github is a cloud based repository viewer that holds allows a repository to be accessed via webapp. Github will act as a central location for all our individual tasks and develepments to be accessed from any computer connected to the internet. Changes should be comitted to Git first and then it is pushed to Github so anybody can access the actual files. 
 
+#### Cloning
+To make the initial link of a github repository onto your git, you must clone it. Here are the steps to doing so
+
+1. Open git bash or linux terminal in the working directory of where you wish to store the repository files on your computer. This is can be done by right-clicking inside the folder you save the files and selecting "Git Bash Here"
+
+2. Use the clone command to clone the github repository onto your git. It will automatically create a folder with the name of the repository with all of its contents
+```
+git clone https://github.com/SDSU-TSA-Location-Tracker/Localization-Device.git
+```
+
 #### Branching
 Every repository, in our case **Localization-Device**, has a **main** branch where the most up-to-date ready to ship version is held. This is to ensure there is always a deployable version at any point in the development and maintenance cycle. When new features or additions are being developed, typically a new branch is created with the name of that feature. This allows for a new location that new code and updates can be saved without affecting the **main** branch. In our case, there currently exists a branch for each seperate piece to the project. Once one of the features/branches has been thoroughly tested and is stable, that branch is merged into the **main** branch. What this will do is copy all files from the initial development branch and merge them into the **main** branch so it becomes the most up-to-date version with these new features.
 
@@ -31,7 +41,7 @@ git checkout -b Tristan_RaspberryPi_PCB_Design main
 
 Here is a step by step explanation of how a typical worksession goes
 
-1. Open git bash or linux terminal in the working directory of where you store the repository files on your computer. This is can be done by right-clicking inside the folder you save the files and selecting "Git Bash Here" or "Git GUI Here".
+1. Open git bash or linux terminal in the working directory of where you store the repository files on your computer. This is can be done by right-clicking inside the folder you save the files and selecting "Git Bash Here"
 
 2. Pull any and all changes from the github repository to be saved into your local git
 ```
