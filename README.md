@@ -43,6 +43,7 @@ Here is a step by step explanation of how a typical worksession goes
 
 1. Open git bash or linux terminal in the working directory of where you store the repository files on your computer. This is can be done by right-clicking inside the folder you save the files and selecting "Git Bash Here"
 
+
 2. Pull any and all changes from the github repository **main** to be saved into your local git. Note you must enter the exact branches you wish to update your local version of to the github version. See step 3 on how to change current branch. 
 ```
 git pull
@@ -55,6 +56,7 @@ git checkout [Name_of_Branch]
 
 4. Start developing as you normally do until you are all finished
 
+
 5. Add the specific files that were worked
 ```
 git add file.txt
@@ -65,9 +67,11 @@ git add file.txt
 git commit -m "Programmed the Arduino to blink an LED every 5 seconds"
 ```
 
+
 7. Push these commits in your local git to the github so everyone can pull these changes to their local computers
 ```
 git push origin [Name_of_Branch]
 ```
 
 8. A pop window will appear prompting for you github login information. Enter you username into the first window and click submit, then enter you password into the second window and click submit.
+
