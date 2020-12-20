@@ -64,3 +64,5 @@ git commit -m "Programmed the Arduino to blink an LED every 5 seconds"
 ```
 git push origin [Name_of_Branch]
 ```
+
+7. A pop window will appear prompting for you github login information. Enter you username into the first window and click submit, then enter you password into the second window and click submit.
