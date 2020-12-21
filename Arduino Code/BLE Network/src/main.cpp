@@ -6,9 +6,14 @@
 #define GREEN 23
 #define LED_PWR 25u
 
+// website for UUID https://www.uuidgenerator.net/version1
+
 // create a service id to act as a category for specific information
 // UUID is unique for each bluetooth device's services
-BLEService ledservice("f596897a-432b-11eb-b378-0242ac130002");
+
+BLEService ledservice("6995d586-4351-11eb-b378-0242ac130002"); // Device 1
+//BLEService ledservice("f596897a-432b-11eb-b378-0242ac130002"); // Device 2
+
 // establish a characteristic with the same UUID with read and write priveledges from the connected device
 BLECharCharacteristic switchChar("f596897a-432b-11eb-b378-0242ac130002", BLERead | BLEWrite);
 
@@ -19,13 +24,16 @@ void blePeripheralConnectHandler(BLEDevice central)
   // print the address of the connected device and turn on blue led
   Serial.print("Connect event, central: ");
   Serial.println(central.address());
+  delay(100);
+  Serial.print("RSSI Value: ");
+  Serial.println(central.rssi());
   digitalWrite(BLUE, LOW);
 }
 
 void blePeripheralDisconnectHandler(BLEDevice central)
 {
   // print the address of the disconnected device and turn off blue led
-  Serial.print("Disconnet event, central: ");
+  Serial.print("Disconnect event, central: ");
   Serial.println(central.address());
   digitalWrite(BLUE, HIGH);
 }
@@ -68,7 +76,8 @@ void setup() {
   }
 
   // set name and UUID of device on bluetooth advertise list
-  BLE.setLocalName("Arduino Nano 1");
+  BLE.setLocalName("Arduino 1"); // Device 1
+  //BLE.setLocalName("Arduino 2"); // Device 2
   BLE.setAdvertisedService(ledservice);
 
   // add characteristic and service to BLE device
@@ -92,5 +101,22 @@ void loop() {
 
   // poll for events to occur
   BLE.poll();
+  BLE.scan(); // scans for any nearby advertising device
+  BLEDevice peripheral = BLE.available(); // save one of the nearby devices to peripheral
 
+  if(peripheral)
+  {
+    // if the nearby device has a visable local name and is "Arduino 2"
+    // print the name of the device and its rssi value
+    if(peripheral.hasLocalName())
+    {
+      if(peripheral.localName()=="Arduino 2")
+      {
+        Serial.print("Local name: ");
+        Serial.println(peripheral.localName());
+        Serial.print("RSSI: ");
+        Serial.println(peripheral.rssi());
+      }
+    }
+  }
 }
